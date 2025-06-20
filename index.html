@@ -10,11 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Coastal Sunset (from-orange-400 via-rose-500 to-purple-700 for background gradients, with warm neutrals for content) -->
     <!-- Application Structure Plan: The SPA is organized into clear, scrollable sections: a prominent hero banner to set the "coastal sunset" vibe, an "About" section for the city's lore, a "Features" section detailing the roleplay server's offerings, a "Community" section highlighting the friendly aspect, and an "Events" section for dynamic updates. Navigation is a sticky header with smooth scrolls to each section, enhancing ease of exploration. The design prioritizes visual appeal (sunset gradients, soft shadows, rounded corners) and readability (clear text on contrasting backgrounds) to create an immersive and inviting user experience, directly aligning with the server's "chill vibe with serious fun." -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: Overall city vibe and name. Goal: Set the atmosphere and brand identity. Viz: Hero section with dynamic sunset gradient, large welcoming text, and integrated logo. Interaction: Visual engagement. Justification: Immediately conveys the theme and establishes brand presence.
+    <!-- Visualization & Content Choices:
+        - Report Info: Overall city vibe and name. Goal: Set atmosphere and brand identity. Viz: Hero section with dynamic sunset gradient, large welcoming text, and integrated logo. Interaction: Visual engagement. Justification: Immediately conveys the theme and establishes brand presence.
         - Report Info: Description of roleplay server and city. Goal: Inform and immerse. Viz: Text blocks with clear headings and engaging paragraphs, visually separated. Interaction: Reading/scrolling. Justification: Provides necessary narrative content in an easily digestible format.
         - Report Info: Key features (realistic roleplay, friendly community, active staff, events). Goal: Highlight key offerings. Viz: Feature cards with icons (unicode/emoji for visual interest, no images/SVG to comply with requirements) and concise descriptions. Interaction: Scanning/reading. Justification: Breaks down features into bite-sized, appealing chunks.
         - Report Info: Logo. Goal: Brand recognition. Viz: Direct image embed. Justification: Essential for identity.
+        - Report Info: User-provided images of the game. Goal: Show actual in-game environment. Viz: Image gallery in a responsive grid. Interaction: Visual browsing. Justification: Provides direct visual context of the roleplay environment, enhancing immersion and appeal.
         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
@@ -32,6 +33,107 @@
             background-clip: text;
             color: transparent;
         }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            /* Keep the background gradient for dark mode, no solid color */
+            /* The transition on background-color is handled by the overall body. */
+        }
+
+        /* Header */
+        body.dark-mode header {
+            background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+            color: #f7f7f7;
+            transition: background-color 0.5s ease;
+        }
+        body.dark-mode header nav h1,
+        body.dark-mode header nav a {
+            color: #e0e0e0; /* Lighter text for dark header */
+        }
+        body.dark-mode #mobile-menu {
+            background-color: rgba(0, 0, 0, 0.9);
+            transition: background-color 0.5s ease;
+        }
+        body.dark-mode #mobile-menu a {
+            color: #e0e0e0;
+        }
+        body.dark-mode #mobile-menu-button svg {
+            stroke: #e0e0e0;
+        }
+
+        /* About and Community sections */
+        body.dark-mode #about,
+        body.dark-mode #community,
+        body.dark-mode #snapshots { /* Also apply dark mode to new snapshots section */
+            background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+            color: #e0e0e0; /* Light text */
+            transition: background-color 0.5s ease;
+        }
+        body.dark-mode #about h3,
+        body.dark-mode #community h3,
+        body.dark-mode #snapshots h3 { /* Apply to new snapshots heading */
+            color: #f7f7f7; /* Lighter heading */
+        }
+        body.dark-mode #about p,
+        body.dark-mode #community p,
+        body.dark-mode #snapshots p { /* Apply to new snapshots paragraph */
+            color: #c0c0c0; /* Slightly lighter body text */
+        }
+
+        /* Feature cards */
+        body.dark-mode #features > div > div {
+            background-color: rgba(0, 0, 0, 0.9);
+            /* Keep accent border colors as they are for consistency with the theme */
+            transition: background-color 0.5s ease;
+        }
+        body.dark-mode #features h4 {
+            color: #e0e0e0;
+        }
+        body.dark-mode #features p {
+            color: #c0c0c0;
+        }
+
+        /* Events section */
+        body.dark-mode #events > div {
+            background-color: rgba(255, 255, 255, 0.2); /* Invert the opacity for visual consistency */
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #f7f7f7;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Hero Section overlay */
+        body.dark-mode #home > div {
+            background-color: rgba(255, 255, 255, 0.3); /* Invert for consistent dark mode look */
+            border-color: rgba(0, 0, 0, 0.2);
+            transition: background-color 0.5s ease;
+        }
+
+        /* Footer */
+        body.dark-mode footer {
+            background-color: #0d0d0d;
+            color: #c0c0c0;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Override specific Tailwind text colors to ensure visibility on dark background */
+        body.dark-mode .text-stone-800 { color: #e0e0e0; }
+        body.dark-mode .text-stone-700 { color: #c0c0c0; }
+        body.dark-mode .text-stone-600 { color: #b0b0b0; }
+        body.dark-mode .text-stone-900 { color: #f7f7f7; }
+        body.dark-mode .text-stone-500 { color: #a0a0a0; }
+        body.dark-mode .text-gray-200 { color: #e0e0e0; } /* For the events subtext */
+
+        /* Moon/Sun icon styling */
+        #theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem; /* Adjust size as needed */
+            margin-left: 1rem; /* Space from other nav items */
+            color: #FFBF00; /* Default sun color */
+            transition: color 0.3s ease;
+        }
+        body.dark-mode #theme-toggle {
+            color: #A0A0A0; /* Moon color in dark mode */
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -40,20 +142,26 @@
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-xl py-4">
         <nav class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <img src="image_2025-06-19_204828121.png" alt="Southbay Roleplay Logo" class="h-12 w-12 object-contain rounded-lg shadow-md">
+                <img src="image_2025-06-19_210754298.png" alt="Southbay Roleplay Logo" class="h-12 w-12 object-contain rounded-lg shadow-md onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=Logo';">
                 <h1 class="text-3xl font-bold text-stone-900 text-pacifico">Southbay Roleplay</h1>
             </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Home</a>
-                <a href="#about" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">About Southbay</a>
-                <a href="#features" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Features</a>
-                <a href="#community" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Community</a>
-                <a href="#events" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Events</a>
+            <div class="flex items-center space-x-8">
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Home</a>
+                    <a href="#about" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">About Southbay</a>
+                    <a href="#features" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Features</a>
+                    <a href="#community" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Community</a>
+                    <a href="#snapshots" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Snapshots</a>
+                    <a href="#events" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Events</a>
+                </div>
+                <button id="theme-toggle" class="focus:outline-none">
+                    🌙 <!-- Default icon -->
+                </button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-stone-700 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-stone-700 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-2 space-y-2 bg-white/90 backdrop-blur-md">
@@ -61,6 +169,7 @@
             <a href="#about" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">About Southbay</a>
             <a href="#features" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Features</a>
             <a href="#community" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Community</a>
+            <a href="#snapshots" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Snapshots</a>
             <a href="#events" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Events</a>
         </div>
     </header>
@@ -132,6 +241,27 @@
             </div>
         </section>
 
+        <!-- Southbay Snapshots Section -->
+        <section id="snapshots" class="py-16 md:py-24 container mx-auto px-6 bg-white bg-opacity-90 rounded-2xl shadow-xl">
+            <h3 class="text-4xl font-bold text-stone-800 text-center mb-10 font-pacifico">Southbay Snapshots: A Glimpse of the City</h3>
+            <div class="max-w-4xl mx-auto text-lg text-stone-700 leading-relaxed text-center mb-12">
+                <p>
+                    Explore the vibrant streets and diverse environments of Southbay through these in-game snapshots. From bustling urban scenes to tranquil night roads, these images capture the essence of the roleplay world waiting for you.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition duration-300">
+                    <img src="unnamed.jpg" alt="Road construction scene in Southbay" class="w-full h-auto object-cover rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/CCCCCC/FFFFFF?text=Image+Not+Found';">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition duration-300">
+                    <img src="unnamed (1).jpg" alt="Night street with speed limit sign in Southbay" class="w-full h-auto object-cover rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/CCCCCC/FFFFFF?text=Image+Not+Found';">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition duration-300">
+                    <img src="unnamed (2).jpg" alt="Armored bank truck parked in Southbay" class="w-full h-auto object-cover rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/CCCCCC/FFFFFF?text=Image+Not+Found';">
+                </div>
+            </div>
+        </section>
+
         <!-- Events & Updates Section -->
         <section id="events" class="py-16 md:py-24 container mx-auto px-6">
             <h3 class="text-4xl font-bold text-white text-center mb-12 font-pacifico drop-shadow-md">What's Happening in Southbay</h3>
@@ -142,9 +272,8 @@
                 </p>
                 <div class="text-lg text-gray-200">
                     <p>📅 **Upcoming Events:** [Check Discord for details!]</p>
-                    <p>✨ **Recent Updates:** [New features & improvements frequently added!]</p>
                 </div>
-                <a href="#" class="mt-8 inline-block bg-white text-purple-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-100 transition duration-300 transform hover:scale-105">
+                <a href="https://discord.gg/rBjpEsUgGp" class="mt-8 inline-block bg-white text-purple-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-100 transition duration-300 transform hover:scale-105" target="_blank" rel="noopener noreferrer">
                     Join Our Discord!
                 </a>
             </div>
@@ -160,10 +289,14 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                // Only attempt smooth scroll for internal links, not external ones
+                if (targetId && targetId.startsWith('#') && targetId !== '#') {
+                    e.preventDefault(); // Prevent default only for internal anchor links
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
                 // Close mobile menu after clicking a link
                 if (window.innerWidth < 768) {
                     document.getElementById('mobile-menu').classList.add('hidden');
@@ -176,6 +309,32 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Function to apply theme and set icon
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                themeToggle.innerHTML = '☀️'; // Change to sun for dark mode
+            } else {
+                body.classList.remove('dark-mode');
+                themeToggle.innerHTML = '🌙'; // Change to moon for light mode
+            }
+        }
+
+        // Check for saved theme preference on load
+        const savedTheme = localStorage.getItem('theme');
+        applyTheme(savedTheme || 'light'); // Default to light if no preference saved
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     </script>
 </body>
