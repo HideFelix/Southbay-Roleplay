@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southbay Roleplay - Your Coastal City Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Coastal Sunset (from-orange-400 via-rose-500 to-purple-700 for background gradients, with warm neutrals for content) -->
+    <!-- Application Structure Plan: The SPA is organized into clear, scrollable sections: a prominent hero banner to set the "coastal sunset" vibe, an "About" section for the city's lore, a "Features" section detailing the roleplay server's offerings, a "Community" section highlighting the friendly aspect, and an "Events" section for dynamic updates. Navigation is a sticky header with smooth scrolls to each section, enhancing ease of exploration. The design prioritizes visual appeal (sunset gradients, soft shadows, rounded corners) and readability (clear text on contrasting backgrounds) to create an immersive and inviting user experience, directly aligning with the server's "chill vibe with serious fun." -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Overall city vibe and name. Goal: Set atmosphere and brand identity. Viz: Hero section with dynamic sunset gradient, large welcoming text, and integrated logo. Interaction: Visual engagement. Justification: Immediately conveys the theme and establishes brand presence.
+        - Report Info: Description of roleplay server and city. Goal: Inform and immerse. Viz: Text blocks with clear headings and engaging paragraphs, visually separated. Interaction: Reading/scrolling. Justification: Provides necessary narrative content in an easily digestible format.
+        - Report Info: Key features (realistic roleplay, friendly community, active staff, events). Goal: Highlight key offerings. Viz: Feature cards with icons (unicode/emoji for visual interest, no images/SVG to comply with requirements) and concise descriptions. Interaction: Scanning/reading. Justification: Breaks down features into bite-sized, appealing chunks.
+        - Report Info: Logo. Goal: Brand recognition. Viz: Direct image embed. Justification: Essential for identity.
+        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, #FFC107, #FF9800, #FF5722, #E91E63, #9C27B0, #673AB7);
+            background-attachment: fixed;
+            color: #f7f7f7; /* Light text for dark sunset background */
+        }
+        .text-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        .text-gradient-sunset {
+            background-image: linear-gradient(to right, #FFD700, #FFA500, #FF4500); /* Gold, Orange, OrangeRed */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-xl py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="image_2025-06-19_204828121.png" alt="Southbay Roleplay Logo" class="h-12 w-12 object-contain rounded-lg shadow-md">
+                <h1 class="text-3xl font-bold text-stone-900 text-pacifico">Southbay Roleplay</h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Home</a>
+                <a href="#about" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">About Southbay</a>
+                <a href="#features" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Features</a>
+                <a href="#community" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Community</a>
+                <a href="#events" class="text-lg text-stone-700 hover:text-orange-600 transition duration-300">Events</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-stone-700 hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-2 space-y-2 bg-white/90 backdrop-blur-md">
+            <a href="#home" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Home</a>
+            <a href="#about" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">About Southbay</a>
+            <a href="#features" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Features</a>
+            <a href="#community" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Community</a>
+            <a href="#events" class="block text-lg text-stone-700 hover:text-orange-600 transition duration-300">Events</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center text-center p-6">
+            <div class="relative z-10 p-8 bg-black bg-opacity-30 rounded-xl shadow-2xl backdrop-blur-sm mx-auto max-w-4xl border border-white/20">
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-gradient-sunset drop-shadow-lg">Welcome to Southbay</h2>
+                <p class="text-xl md:text-2xl text-white font-light leading-relaxed">
+                    Where every sunset paints a new adventure and the waves whisper tales of immersive roleplay.
+                </p>
+                <a href="#about" class="mt-8 inline-block bg-white text-orange-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-100 transition duration-300 transform hover:scale-105">
+                    Discover Our City
+                </a>
+            </div>
+        </section>
+
+        <!-- About Southbay Section -->
+        <section id="about" class="py-16 md:py-24 container mx-auto px-6 bg-white bg-opacity-90 rounded-2xl shadow-xl -mt-20 relative z-20">
+            <h3 class="text-4xl font-bold text-stone-800 text-center mb-10 font-pacifico">Discover Southbay: Your Coastal Paradise</h3>
+            <div class="max-w-4xl mx-auto text-lg text-stone-700 leading-relaxed text-center">
+                <p class="mb-6">
+                    Imagine a place where the sun always shines, casting golden hues over pristine beaches and a bustling boardwalk. Southbay is more than just a city; it's a vibrant community nestled by the azure waves, where every street corner holds a story waiting to unfold. From the lively downtown districts to the serene, palm-lined promenades, Southbay offers a unique blend of coastal charm and urban excitement.
+                </p>
+                <p>
+                    It’s a place where the ocean breeze carries whispers of new possibilities, and the dramatic sunsets signal the beginning of another unforgettable night of adventure and connection. Dive into the sun-soaked streets of SouthBay, where endless waves of adventure and immersive roleplay await! Whether you’re cruising the coast or patrolling the city, SouthBay RP offers a chill vibe with serious fun.
+                </p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 md:py-24 container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-white text-center mb-12 font-pacifico drop-shadow-md">Unleash Your Story</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white/90 p-8 rounded-xl shadow-lg flex flex-col items-center text-center border-b-4 border-orange-400 transform hover:scale-105 transition duration-300">
+                    <span class="text-5xl mb-4">🌊</span>
+                    <h4 class="text-2xl font-semibold text-stone-800 mb-3">Smooth, Realistic Roleplay</h4>
+                    <p class="text-stone-700 text-base">Experience seamless and immersive roleplay sessions with attention to detail, making every interaction feel authentic.</p>
+                </div>
+                <div class="bg-white/90 p-8 rounded-xl shadow-lg flex flex-col items-center text-center border-b-4 border-rose-500 transform hover:scale-105 transition duration-300">
+                    <span class="text-5xl mb-4">🤝</span>
+                    <h4 class="text-2xl font-semibold text-stone-800 mb-3">Friendly Community Vibes</h4>
+                    <p class="text-stone-700 text-base">Join a welcoming and supportive community where beachy vibes meet serious fun. Make new friends and create lasting memories.</p>
+                </div>
+                <div class="bg-white/90 p-8 rounded-xl shadow-lg flex flex-col items-center text-center border-b-4 border-purple-600 transform hover:scale-105 transition duration-300">
+                    <span class="text-5xl mb-4">✨</span>
+                    <h4 class="text-2xl font-semibold text-stone-800 mb-3">Active & Dedicated Staff</h4>
+                    <p class="text-stone-700 text-base">Our passionate staff works tirelessly to ensure a fair, fresh, and engaging environment for everyone.</p>
+                </div>
+                <div class="bg-white/90 p-8 rounded-xl shadow-lg flex flex-col items-center text-center border-b-4 border-indigo-700 transform hover:scale-105 transition duration-300">
+                    <span class="text-5xl mb-4">🎉</span>
+                    <h4 class="text-2xl font-semibold text-stone-800 mb-3">Exciting Events & Updates</h4>
+                    <p class="text-stone-700 text-base">Always something new! Look forward to thrilling events, unique activities, and regular updates that keep Southbay dynamic.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="py-16 md:py-24 container mx-auto px-6 bg-white bg-opacity-90 rounded-2xl shadow-xl">
+            <h3 class="text-4xl font-bold text-stone-800 text-center mb-10 font-pacifico">Join Our Family Under the Sun</h3>
+            <div class="max-w-4xl mx-auto text-lg text-stone-700 leading-relaxed text-center">
+                <p class="mb-6">
+                    At Southbay Roleplay, our community is the heart of our city. We believe in fostering a friendly, inclusive, and creative space where every player can feel at home. Share your stories, collaborate on new adventures, and build connections that extend beyond the virtual world. Whether you're a seasoned roleplayer or new to the scene, you'll find a welcoming embrace and plenty of opportunities to shine in Southbay.
+                </p>
+                <p>
+                    From casual hangouts on the pier to epic city-wide narratives, the possibilities are as boundless as the ocean. Come, be a part of something special, and help us paint the vibrant canvas of Southbay with your unique flair!
+                </p>
+            </div>
+        </section>
+
+        <!-- Events & Updates Section -->
+        <section id="events" class="py-16 md:py-24 container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-white text-center mb-12 font-pacifico drop-shadow-md">What's Happening in Southbay</h3>
+            <div class="max-w-4xl mx-auto bg-black bg-opacity-20 p-8 rounded-xl shadow-lg border border-white/20 text-center">
+                <p class="text-xl text-white mb-6">
+                    Our staff is always working hard to bring fresh content and exciting experiences to Southbay!
+                    Stay tuned to our Discord server for the latest announcements on upcoming events, server updates, and community gatherings.
+                </p>
+                <div class="text-lg text-gray-200">
+                    <p>📅 **Upcoming Events:** [Check Discord for details!]</p>
+                    <p>✨ **Recent Updates:** [New features & improvements frequently added!]</p>
+                </div>
+                <a href="#" class="mt-8 inline-block bg-white text-purple-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-100 transition duration-300 transform hover:scale-105">
+                    Join Our Discord!
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-stone-900 text-white text-center">
+        <p>&copy; 2025 Southbay Roleplay. All rights reserved. | Roblox Roleplay Community</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking a link
+                if (window.innerWidth < 768) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
